@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="etf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/boostrap.css">
+    <link href="https://fonts.cdnfonts.com/css/couture" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+        .tab1{
+             /*display: none !important;*/ 
+        }
+        .tab2{
+            /* display: none !important; */
+        }
+        .tab3{
+            /* display: none !important; */
+        }
+        .tab4{
+            /* display: none !important; */ 
+        }
+        .tab5{
+            /* display: none !important; */
+        }
+        .tab6{
+            /* display: none !important; */
+        }
+        .tab7{
+            /* display: none !important; */
+        }
+    </style>
+
+    <style>
+        .d-flex {
+            display: flex;
+        }
+
+        .d-none {
+            display: none;
+        }
+
+        .container1 {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 50px 0 0 0;
+        }
+
+        .flex-direction-column {
+            flex-direction: column;
+        }
+
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+        .justify-content-center {
+            justify-content: center;
+        }
+
+        html {
+            box-sizing: border-box;
+            height: 100%;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .thumbnails {
+            display: flex;
+            line-height: 0;
+            flex-wrap: wrap;
+        }
+
+        .thumbnails a {
+            display: block;
+        }
+
+        .thumbnails li {
+            width: 200px;
+            padding: 10px 0px;
+            margin: 10px 1px;
+            transition: all 0.5s;
+        }
+
+        .thumbnails li:hover {
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        }
+
+        .thumbnails img {
+            width: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .slides {
+            overflow: hidden;
+            width: 100%;
+            height: 240px;
+        }
+
+        .slides li {
+            position: absolute;
+            z-index: 1;
+            width: 40%;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .slides img {
+            object-fit: cover;
+            object-position: top;
+            max-width: 100%;
+            width: 600px;
+            height: 235px;
+            object-fit: cover;
+        }
+
+        .popupContainer img {
+            width: 50% !important;
+            height: auto !important;
+            left: 25% !important;
+            top: 40% !important;
+        }
+
+
+        .slides li:target {
+            z-index: 3;
+            -webkit-animation: slide 0.2s 1;
+        }
+
+        .slides li:not(:target) {
+            -webkit-animation: hidden 1s 1;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes hidden {
+            0% {
+                z-index: 2;
+            }
+
+            100% {
+                z-index: 2;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        .img-container {
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+
+        .img-container img {
+            cursor: pointer;
+
+        }
+
+
+        .popupContainer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            top: 0;
+            overflow: auto;
+            z-index: 9;
+        }
+
+        .popupContainer .popUpBackground {
+            transition: all 0.3s ease-in-out;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            top: 0;
+            background: black;
+            opacity: 0.5;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .popImage {
+            position: relative;
+            display: block;
+            transition: all 0.3s ease-in-out !important;
+            border-radius: 6px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15),
+                0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-img {
+            width: 70%;
+        }
+
+        .tab-n-dis {
+            width: 40%;
+            padding: 0 0 0 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .tab-n-img {
+            width: 100%;
+            padding-left: 50px;
+        }
+
+        .nav-main {
+            width: 15%;
+        }
+
+        .tab-n-dis p {
+            font-size: 16px;
+            font-family: helvetica-w01-roman, helvetica-w02-roman, helvetica-lt-w10-roman, sans-serif;
+        }
+
+        .tab-n-dis h3 {
+            font-size: 36px;
+            font-family: 'Couture', sans-serif;
+            font-weight: 600;
+        }
+
+        .tab-content {
+            width: 85%;
+        }
+
+        .nav-main li {
+            border: 1px solid #eee;
+        }
+
+        .nav-main li.active {
+            background: #eee;
+        }
+
+        .nav-main li a {
+            display: flex;
+            justify-content: center;
+        }
+
+        img.first-img {
+            width: 60%;
+        }
+
+        .first-img {
+            padding: 0 50px 20px 20px;
+            width: 57%;
+        }
+
+        .first-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+
+    <style>
+        @media (max-width: 767px) {
+            .main-d {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .slides li {
+                width: 100%;
+            }
+
+            .nav-main {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                overflow-x: scroll;
+                padding: 20px 10px;
+            }
+
+            .tab-content {
+                padding: 20px 0;
+            }
+
+            .img-main {
+                flex-direction: column;
+            }
+
+            .tab-img {
+                width: 100%;
+            }
+
+            .tab-n-dis {
+                width: 100%;
+            }
+
+            .slides {
+                width: 100%;
+                height: 150px;
+                margin: 20px 0;
+            }
+
+            .img-container {
+                justify-content: center;
+            }
+
+            .thumbnails li {
+                width: 33.33%;
+                margin: 10px 0;
+            }
+
+            .abc {
+                padding: 0;
+            }
+
+            .thumbnails a {
+                display: flex;
+                justify-content: center;
+            }
+
+            .popupContainer img {
+                width: 100% !important;
+                height: auto !important;
+                top: 15% !important;
+                left: 0 !important;
+            }
+
+            .tab-n-img {
+                padding: 0;
+            }
+
+            .tab-content {
+                width: 100%;
+            }
+
+            .tab-description {
+                flex-wrap: wrap;
+            }
+
+            .thumbnails {
+                padding: 0 20px;
+            }
+
+            .nav li {
+                display: flex;
+                align-items: center;
+            }
+
+            .tab-n-dis {
+                padding: 0;
+            }
+
+            .first-img {
+                padding: 0;
+                width: 100%;
+            }
+            .tab-n-dis h3 {
+                font-size: 30px;
+            }
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <div class="container1 d-fl d-flex main-d">
+        <ul class="nav d-flex flex-direction-column nav-main">
+
+            <li class="tab1"><a href="#FaceAFace" data-toggle="tab">
+                <img width="180"
+                src="https://static.wixstatic.com/media/6efade_d81f00ba6cf9494dab68311652a75de4~mv2.png">
+                </a>
+            </li>
+
+            <li class="tab2"><a href="#Gucci" data-toggle="tab">
+                <img width="180"
+                src="https://static.wixstatic.com/media/6efade_0a3908a796374d579fc4fc8cc0bcdda5~mv2.png">
+                </a>
+            </li>
+
+            <li class="tab3"><a href="#SaintLaurent" data-toggle="tab">
+                <img width="180"
+                src="https://static.wixstatic.com/media/6efade_10833cbace4d460596d401a54dc7a95e~mv2.png">
+                </a>
+            </li>
+
+            <li class="tab4"><a href="#BottegaVeneta" data-toggle="tab">
+                <img width="180"
+                src="https://static.wixstatic.com/media/6efade_98e56924988d4d10aa9f009232073bb1~mv2.png">
+                </a>
+            </li>
+
+            <li class="tab5"><a href="#Entourage" data-toggle="tab">
+                <img width="180"
+                src="https://static.wixstatic.com/media/6efade_58b5bf7b4f34489fb94cf969b287ef21~mv2.png">
+                </a>
+            </li>
+
+            <li class="tab6"><a href="#Alexander" data-toggle="tab">
+                <img width="180"
+                src="https://static.wixstatic.com/media/6efade_58b6066d252f49228a5545fe3d6dbd3d~mv2.png">
+                </a>
+            </li>
+
+            <li class="tab7"><a href="#Lamarca" data-toggle="tab">
+                <img width="180"
+                src="https://static.wixstatic.com/media/6efade_631ef42331a24ccd96ff1683054472ac~mv2.png">
+                </a>
+            </li>
+            <li class="tab8"><a href="#Ray" data-toggle="tab">
+                    <img width="180"
+                        src="https://static.wixstatic.com/media/6efade_7e5fce709fc043c099ac7e6a14283452~mv2.png">
+                </a>
+            </li>
+            <li class="tab9" class="active"><a href="#Francois" data-toggle="tab">
+                        <img width="180"
+                        src="https://static.wixstatic.com/media/6efade_387653ed6a5d4b678b6e2bd1c317ed80~mv2.png">
+                </a>
+            </li>
+            <li class="tab10"><a href="#Exalto" data-toggle="tab">
+                    <img width="180"
+                        src="https://static.wixstatic.com/media/6efade_8ab78958377c495cb90694761f5e2ca1~mv2.png">
+                </a>
+            </li>
+
+            <li class="tab11"><a href="#Dilem" data-toggle="tab">
+                    <img width="180"
+                        src="https://static.wixstatic.com/media/6efade_08fc8d3cd6e64692ac5e218dfd6f4654~mv2.png">
+                </a>
+            </li>
+
+            <li class="tab12"><a href="#Chloe" data-toggle="tab">
+                    <img width="180"
+                        src="https://static.wixstatic.com/media/6efade_194d20fba5fa4accb15c935cb53843dc~mv2.png">
+                </a>
+            </li>
+
+            <li class="tab13"><a href="#Silhouette" data-toggle="tab">
+                    <img width="180"
+                        src="https://static.wixstatic.com/media/6efade_02efb34d88934be589e92b21834e59ee~mv2.png">
+                </a>
+            </li>
+        </ul>
+
+            <li class="tab14"><a href="#FYSH" data-toggle="tab">
+                    <img width="180"
+                        src="https://static.wixstatic.com/media/362439_34ec675cedbf4ba88fd5974187d9c9d6~mv2.png">
+                </a>
+            </li>
+        </ul>
+
+            <li class="tab15"><a href="#KLiiK" data-toggle="tab">
+                    <img width="180"
+                        src="https://static.wixstatic.com/media/362439_637a832fac584bb4a04bc4af838f46e3~mv2.png">
+                </a>
+            </li>
+        </ul>
+
+            <li class="tab16"><a href="#NoLogo" data-toggle="tab">
+                    <img width="180"
+                        src="https://static.wixstatic.com/media/362439_b77862981c354d50b82193dcd5c11c54~mv2.png">
+                </a>
+            </li>
+        </ul>
+
+
+
+
+
+        <div class="tab-content">
+
+            <div id="FaceAFace" text="1" class="tab1 tab-pane fade in active">
+                <div class="container1 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/6efade_fd252d9ca45145e9b960b7c1602e79f8~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>Face A Face</h3>
+                                    <p>Originating from the artistic culture of Paris, FACE A FACE is a contemporary
+                                        luxury eyewear brand for those who want to stand out. Its collections feature
+                                        unique shapes and striking colours, with an aesthetic inspired by modern art,
+                                        design, fashion and architecture. The frames are made in France, Italy and Japan
+                                        with exquisite, high-quality materials and craftsmanship. Whether you’re looking
+                                        for something sophisticated or whimsical, FACE A FACE has eyewear you’ll
+                                        treasure for years to come.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Gucci" text="2" class="tab2 tab-pane fade">
+                <div class="container2 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/6efade_bf31c07d903f4d9caa9acb2fd3128678~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>Gucci</h3>
+                                    <p>Straight from the renowned Italian fashion house, Gucci eyewear selections come in a variety of styles, from dramatic to understated. All are meticulously crafted with small details that distinguish them from everyday frames. When you slip them on, you’re not just wearing glasses — you’re wearing Gucci.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+
+            <div id="SaintLaurent" text="3" class="tab3 tab-pane fade">
+                <div class="container3 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/6efade_24d6ee132b494c2296118c7af15dd913~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>Saint Laurent</h3>
+                                    <p>These aren't your everyday glasses. Saint Laurent eyewear blends contemporary luxury with timeless style to create a look that's truly, distinctively you. Their classic shapes and carefully-placed details make them — and you — stand out from the crowd.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+
+            <div id="BottegaVeneta" text="4" class="tab4 tab-pane fade">
+                <div class="container4 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/6efade_4deac122c7e84350883a0e9b75791332~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>Bottega Veneta</h3>
+                                    <p>Bottega Veneta has been inspiring individuality with innovative craftsmanship since 1966. Their eyewear deftly combines distinctive colours with luxurious finishes to create looks that are modern, yet iconic. Exquisite details, like the house’s classic ribbon motif, abound on each pair. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+
+            <div id="Entourage" text="5" class="tab5 tab-pane fade">
+                <div class="container5 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/6efade_2a8cc2415474412cab03cb18a75e61d8~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>Entourage of 7</h3>
+                                    <p>Entourage of 7’s high-end eyewear embraces the California vibe with looks inspired by Los Angeles, its city of origin. Their frames combine cutting-edge technology with tradition to create truly unique looks, from vintage-inspired to rock n’roll-esque. Slip on a pair and embrace your wilder side. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+
+            <div id="Alexander" text="6" class="tab6 tab-pane fade">
+                <div class="container6 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/6efade_0c5bb7252b1b4af6b519c4810a7d1cbb~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>Alexander McQueen</h3>
+                                    <p>Founded in Britain in 1992, Alexander McQueen is a fashion house that’s always had a flair for the unconventional. Their eyewear collections follow in the same tradition, blending contrasting elements to create an aesthetic that’s classically McQueen. If you’re looking for offbeat luxury, you’ll find it here.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+
+            <div id="Lamarca" text="7" class="tab7 tab-pane fade">
+                <div class="container7 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/6efade_5fdca3bfc2b94986a9f00b5491831eb0~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>Lamarca</h3>
+                                    <p>Handcrafted in the mountains of Italy, Lamarca’s acetate eyewear designs are inspired by art and nature, creating selections that you’ll instantly fall in love with. Colour, production techniques and details are meticulously planned for each pair. Their can’t-miss textures, shapes and embellishments make them winners every time. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+
+            <div id="Ray" text="8" class="tab8 tab-pane fade">
+                <div class="container8 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/6efade_b9e9e6d1013e4ad6ae5af5c7504b0058~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>Ray Ban</h3>
+                                    <p>Ray-Ban has been an icon for decades. Founded in 1936 to create protective eyewear for military pilots, their products have been seen in movies like Breakfast at Tiffany’s, Rebel Without a Cause and Top Gun. Today, their frames combine technical superiority with classic, recognizable styles. Whether it’s a pair of their renowned Aviators or a more modern selection, wearing Ray-Ban is always a good decision.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+
+            <div id="Francois" text="9" class="tab9 tab-pane fade">
+                <div class="container9 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/6efade_1a6ef61cb5bd4a1592071850e0c4060c~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>Francois Pinton</h3>
+                                    <p>When you wear Francois Pinton, you become part of a long tradition of French craftsmanship. Each of their frames are handcrafted by experienced artisans, using a set of exacting standards. Their styles, which range from romantic to whimsical to sophisticated, are unlike any eyewear you’ve ever had.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Exalto" text="10" class="tab10 tab-pane fade">
+                <div class="container10 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/6efade_de84bcaa78e24fb5bf4369b3746fd0de~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>Exalto</h3>
+                                    <p>Exalto draws its design inspiration from men’s fashion. Each of their eyewear selections features masculine styling and high-quality, durable hinges that stand up to the stresses of busy lives. Sophisticated, refined, dynamic — you’ll know an Exalto man when you see one.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="Dilem" text="11" class="tab11 tab-pane fade">
+                <div class="container11 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/6efade_897a2b55dbc8459295067ba7bf6375db~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>Dilem</h3>
+                                    <p>Innovation is at the heart of Dilem’s eyewear. Their charming, colourful designs all feature modular temples, which can be switched out to change the look of the frames. Their lightweight designs, made with eco-friendly materials and conservation-conscious processes, are also glasses you can feel good about.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Chloe" text="12" class="tab12 tab-pane fade">
+                <div class="container12 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/6efade_a437f52c46434df488999dda5ebf8acb~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>Chloe</h3>
+                                    <p>Femininity, effortlessness and grace have characterised the French fashion house Chloė since its inception in 1952. Their eyewear tells a similar story, with soft colours, pleasing textures and gorgeous embellishments. Chloė frames are the accessory you didn’t know you needed.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Silhouette" text="13" class="tab13 tab-pane fade">
+                <div class="container13 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/6efade_b167dfa3bf3a4d77a60d9094522bd39a~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>Silhouette</h3>
+                                    <p>You’re unique — and Silhouette believes your eyewear should be, too. Since its start in 1964 in Austria, the company has specialised in frames that are made with the highest standards of craftsmanship. Their impossibly lightweight selections, available in a variety of styles, are must-adds to your eyewear collection.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="FYSH" text="14" class="tab14 tab-pane fade">
+                <div class="container14 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/362439_a2d6d5f5bec241638870ca6ab5eeb0b0~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>FYSH</h3>
+                                    <p>Discover FYSH, where confidence meets style and individuality reigns supreme. Their frames are meticulously designed for strong, ambitious people who embrace their unique fashion sense with fearless elegance. From trendy animal prints to chic angular shapes, each pair embodies the latest runway trends, ensuring you make a statement wherever you go. Elevate your look with our feminine, fabulous frames, perfect for conquering the boardroom or owning the spotlight. Explore FYSH today and stand out with frames that tell your story of strength, style, and unapologetic self-expression.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="KLiiK" text="15" class="tab15 tab-pane fade">
+                <div class="container15 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/362439_e1f72c8c032e421c8a136ee2aa4c3a59~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>KLiiK</h3>
+                                    <p>Discover KLiiK denmark eyewear, designed for individuals with smaller eye sizes. Drawing inspiration from the clean lines and minimalistic aesthetic of Scandinavian design, their eyewear embodies sophistication and style. From bold coloration to intricate laser-cut detailing, each frame is a testament to our commitment to elevating minimalism with custom design elements and captivating patterns and textures. Whether you're seeking understated elegance or a bold statement piece, KLiiK denmark offers a wide repertoire of styling options for those with a strong sense of personal. Explore our collection today and redefine the way you see eyewear.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="FYSH" text="16" class="tab16 tab-pane fade">
+                <div class="container16 d-flex img-main">
+                    <div class="d-flex flex-direction-column tab-n-img">
+                        <div class="d-flex tab-description">
+                            <div class="first-img">
+                                <img class=""
+                                    src="https://static.wixstatic.com/media/362439_328b386570b9406c87e343d7bdcd4681~mv2.png">
+                            </div>
+                            <div class="tab-n-dis">
+                                <div class="d-flex flex-direction-column">
+                                    <h3>No Logo</h3>
+                                    <p>Discover a new era in eyewear fashion with No Logo sunglasses, setting the standard for contemporary style. Crafted with meticulous attention to detail, their sunglasses reflect international glamour and the ongoing quest for the latest fashion trends. Each pair exudes a unique, refined elegance, featuring exclusive shapes, original frames, and captivating lenses in a diverse palette of colors. Designed in Italy using premium materials, their sunglasses prioritize comfort, lightweight wear, and durability. Embrace the allure of No Logo sunglasses and redefine your look with a touch of modern sophistication.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#tt1").click(function () {
+                $("#t1").removeClass("d-none").addClass("d-flex");
+            });
+            $("#tt2").click(function () {
+                $("#t2").removeClass("d-none").addClass("d-flex");
+            });
+            $("#tt3").click(function () {
+                $("#t3").removeClass("d-none").addClass("d-flex");
+            });
+            $("#tt4").click(function () {
+                $("#t4").removeClass("d-none").addClass("d-flex");
+            });
+            $("#tt5").click(function () {
+                $("#t5").removeClass("d-none").addClass("d-flex");
+            });
+            $("#tt6").click(function () {
+                $("#t6").removeClass("d-none").addClass("d-flex");
+            });
+            $("#tt7").click(function () {
+                $("#t7").removeClass("d-none").addClass("d-flex");
+            });
+        });
+    </script>
+    <script>
+        function initImagePopup(elem) {
+            // check for mouse click, add event listener on document
+            document.addEventListener('click', function (e) {
+                // check if click target is img of the elem - elem is image container
+                if (!e.target.matches(elem + ' img')) return;
+                else {
+
+                    var image = e.target; // get current clicked image
+
+                    // create new popup image with all attributes for clicked images and offsets of the clicked image
+                    var popupImage = document.createElement("img");
+                    popupImage.setAttribute('src', image.src);
+                    popupImage.style.width = image.width + "px";
+                    popupImage.style.height = image.height + "px";
+                    popupImage.style.left = image.offsetLeft + "px";
+                    popupImage.style.top = image.offsetTop + "px";
+                    popupImage.classList.add('popImage');
+
+                    // creating popup image container
+                    var popupContainer = document.createElement("div");
+                    popupContainer.classList.add('popupContainer');
+
+                    // creating popup image background
+                    var popUpBackground = document.createElement("div");
+                    popUpBackground.classList.add('popUpBackground');
+
+                    // append all created elements to the popupContainer then on the document.body
+                    popupContainer.appendChild(popUpBackground);
+                    popupContainer.appendChild(popupImage);
+                    document.body.appendChild(popupContainer);
+
+                    // call function popup image to create new dimensions for popup image and make the effect
+                    popupImageFunction();
+
+
+                    // resize function, so that popup image have responsive ability
+                    var wait;
+                    window.onresize = function () {
+                        clearTimeout(wait);
+                        wait = setTimeout(popupImageFunction, 100);
+                    };
+
+                    // close popup image clicking on it
+                    popupImage.addEventListener('click', function (e) {
+                        closePopUpImage();
+                    });
+                    // close popup image on clicking on the background
+                    popUpBackground.addEventListener('click', function (e) {
+                        closePopUpImage();
+                    });
+
+
+                    function popupImageFunction() {
+                        // wait few miliseconds (10) and change style of the popup image and make it popup
+                        // waiting is for animation to work, yulu can disable it and check what is happening when it's not there
+                        setTimeout(function () {
+                            // I created this part very simple, but you can do it much better by calculating height and width of the screen,
+                            // image dimensions.. so that popup image can be placed much better
+                            popUpBackground.classList.add('active');
+                            popupImage.style.left = "15%";
+                            popupImage.style.top = "50px";
+                            popupImage.style.width = window.innerWidth * 0.7 + "px";
+                            popupImage.style.height = ((image.height / image.width) * (window.innerWidth * 0.7)) + "px";
+                        }, 10);
+                    }
+
+                    // function for closing popup image, first it will be return to the place where 
+                    // it started then it will be removed totaly (deleted) after animation is over, in our case 300ms
+                    function closePopUpImage() {
+                        popupImage.style.width = image.width + "px";
+                        popupImage.style.height = image.height + "px";
+                        popupImage.style.left = image.offsetLeft + "px";
+                        popupImage.style.top = image.offsetTop + "px";
+                        popUpBackground.classList.remove('active');
+                        setTimeout(function () {
+                            popupContainer.remove();
+                        }, 300);
+                    }
+
+                }
+            });
+        }
+
+        // Start popup image function
+        initImagePopup(".img-container") // elem = image container
+
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+
+        $('.slider').each(function () {
+            var $this = $(this);
+            var $group = $this.find('.slide_group');
+            var $slides = $this.find('.slide');
+            var bulletArray = [];
+            var currentIndex = 0;
+            var timeout;
+
+            function move(newIndex) {
+                var animateLeft, slideLeft;
+
+                advance();
+
+                if ($group.is(':animated') || currentIndex === newIndex) {
+                    return;
+                }
+
+                bulletArray[currentIndex].removeClass('active');
+                bulletArray[newIndex].addClass('active');
+
+                if (newIndex > currentIndex) {
+                    slideLeft = '100%';
+                    animateLeft = '-100%';
+                } else {
+                    slideLeft = '-100%';
+                    animateLeft = '100%';
+                }
+
+                $slides.eq(newIndex).css({
+                    display: 'block',
+                    left: slideLeft
+                });
+                $group.animate({
+                    left: animateLeft
+                }, function () {
+                    $slides.eq(currentIndex).css({
+                        display: 'none'
+                    });
+                    $slides.eq(newIndex).css({
+                        left: 0
+                    });
+                    $group.css({
+                        left: 0
+                    });
+                    currentIndex = newIndex;
+                });
+            }
+
+            function advance() {
+                clearTimeout(timeout);
+                timeout = setTimeout(function () {
+                    if (currentIndex < ($slides.length - 1)) {
+                        move(currentIndex + 1);
+                    } else {
+                        move(0);
+                    }
+                }, 4000);
+            }
+
+            $('.next_btn').on('click', function () {
+                if (currentIndex < ($slides.length - 1)) {
+                    move(currentIndex + 1);
+                } else {
+                    move(0);
+                }
+            });
+
+            $('.previous_btn').on('click', function () {
+                if (currentIndex !== 0) {
+                    move(currentIndex - 1);
+                } else {
+                    move(3);
+                }
+            });
+
+            $.each($slides, function (index) {
+                var $button = $('<a class="slide_btn">&bull;</a>');
+
+                if (index === currentIndex) {
+                    $button.addClass('active');
+                }
+                $button.on('click', function () {
+                    move(index);
+                }).appendTo('.slide_buttons');
+                bulletArray.push($button);
+            });
+
+            advance();
+        });
+    </script>
+</body>
+
+</html>
